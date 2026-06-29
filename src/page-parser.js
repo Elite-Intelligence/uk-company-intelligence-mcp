@@ -85,18 +85,29 @@ function extractContactFromJsonLd(jsonLdItems) {
   return {};
 }
 
+function cleanEmail(raw) {
+  // Strip JSON unicode escape fragments (e.g. > -> >) that appear at the
+  // start of the local part when scraped from inline JS strings in HTML.
+  // Also strip HTML entity fragments (amp;, gt;, lt;, quot;).
+  return raw.replace(/^(?:u[0-9a-f]{3,4}|amp;?|lt;?|gt;?|quot;?)/i, '');
+}
+
 function extractEmails(html) {
   const emails = new Set();
   // Match mailto: links first (most reliable)
   const mailtoRe = /mailto:([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})/g;
   let m;
-  while ((m = mailtoRe.exec(html)) !== null) emails.add(m[1].toLowerCase());
+  while ((m = mailtoRe.exec(html)) !== null) {
+    const addr = cleanEmail(m[1].toLowerCase());
+    if (addr.includes('@')) emails.add(addr);
+  }
 
   // Fall back to plain text email pattern, filtered more aggressively
   if (emails.size === 0) {
     const plainRe = /\b([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})\b/g;
     while ((m = plainRe.exec(html)) !== null) {
-      const addr = m[1].toLowerCase();
+      const addr = cleanEmail(m[1].toLowerCase());
+      if (!addr.includes('@')) continue;
       const domain = addr.split('@')[1];
       if (!EMAIL_BLOCKLIST.some(b => domain === b || domain.endsWith('.' + b))) {
         emails.add(addr);
@@ -107,28 +118,37 @@ function extractEmails(html) {
   return [...emails].slice(0, 3);
 }
 
+function normalizePhone(raw) {
+  // Strip everything except digits and leading +
+  const digits = raw.replace(/[^\d+]/g, '');
+  // UK numbers: 10-11 digits (or 12-13 with +44/0044 prefix)
+  if (digits.length < 10 || digits.length > 13) return null;
+  // Reformat cleanly with spaces
+  if (digits.startsWith('+44')) return '+44 ' + digits.slice(3).replace(/(\d{4})(\d{3})(\d{3,4})/, '$1 $2 $3');
+  if (digits.startsWith('0044')) return '+44 ' + digits.slice(4);
+  // Domestic format: 07xxx xxxxxx or 01xxx xxxxxx etc.
+  return digits.replace(/^(0\d{4})(\d{3})(\d{3,4})$/, '$1 $2 $3') || digits;
+}
+
 function extractPhones(html) {
   const phones = new Set();
 
-  // tel: links are most reliable
-  const telRe = /href=["']tel:([+\d\s\-().]{7,20})["']/g;
+  // tel: links are most reliable — dots not valid in tel: URIs so exclude them
+  const telRe = /href=["']tel:([+\d\s\-()]{7,20})["']/g;
   let m;
   while ((m = telRe.exec(html)) !== null) {
-    phones.add(m[1].trim().replace(/\s+/g, ' '));
+    const normalized = normalizePhone(m[1]);
+    if (normalized) phones.add(normalized);
   }
 
   // UK number patterns if no tel: links found
+  // Exclude dots from pattern — UK numbers never use dots as separators
   if (phones.size === 0) {
-    // Must appear near visible text context, not inside a JS string (rough heuristic:
-    // look for numbers outside of script tags by stripping scripts first)
     const noScript = html.replace(/<script[\s\S]*?<\/script>/gi, '');
-    const ukRe = /\b((?:\+44|0044|0)[\s\d\-().]{9,15})\b/g;
+    const ukRe = /\b((?:\+44|0044|0)[\s\d\-()]{9,15})\b/g;
     while ((m = ukRe.exec(noScript)) !== null) {
-      const digits = m[1].replace(/\D/g, '');
-      // Sanity check: UK numbers are 10–11 digits (excluding country code prefix)
-      if (digits.length >= 10 && digits.length <= 13) {
-        phones.add(m[1].trim().replace(/\s+/g, ' '));
-      }
+      const normalized = normalizePhone(m[1]);
+      if (normalized) phones.add(normalized);
     }
   }
 
