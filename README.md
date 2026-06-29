@@ -35,7 +35,7 @@ One tool call. Every important fact about any UK-registered company.
 Connect your MCP client to:
 
 ```
-https://mcp.apify.com/actor/YOUR_USERNAME~business-x-mcp/mcp
+https://mcp.apify.com/actor/YOUR_USERNAME~uk-company-intelligence-mcp/mcp
 ```
 
 With your [Apify API token](https://console.apify.com/account/integrations) as a bearer token.
@@ -45,9 +45,9 @@ With your [Apify API token](https://console.apify.com/account/integrations) as a
 ```json
 {
   "mcpServers": {
-    "business-x": {
+    "uk-company-intelligence-mcp": {
       "command": "npx",
-      "args": ["-y", "@apify/actor-mcp-runner", "YOUR_USERNAME/business-x-mcp"],
+      "args": ["-y", "@apify/actor-mcp-runner", "YOUR_USERNAME~uk-company-intelligence-mcp"],
       "env": { "APIFY_TOKEN": "your_apify_token_here" }
     }
   }

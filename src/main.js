@@ -1,5 +1,5 @@
 /**
- * Business X — UK Company Intelligence MCP
+ * UK Company Intelligence MCP
  * Apify Actor entry point.
  *
  * Three execution modes:
@@ -57,7 +57,7 @@ const INPUT_SCHEMA = {
 
 function buildMcpServer() {
   const server = new McpServer(
-    { name: 'business-x-mcp', version: '1.0.0' },
+    { name: 'uk-company-intelligence-mcp', version: '1.0.0' },
     { capabilities: { logging: {} } },
   );
 
@@ -91,7 +91,7 @@ async function runHttpServer() {
   app.use(express.json());
 
   // Health check endpoint — Apify uses this to confirm the Actor is ready
-  app.get('/', (_req, res) => res.json({ status: 'ok', name: 'business-x-mcp' }));
+  app.get('/', (_req, res) => res.json({ status: 'ok', name: 'uk-company-intelligence-mcp' }));
 
   // MCP endpoint — Apify routes traffic here based on webServerMcpPath in actor.json
   app.post('/mcp', async (req, res) => {
@@ -119,7 +119,7 @@ async function runHttpServer() {
   const port = process.env.APIFY_CONTAINER_PORT ? parseInt(process.env.APIFY_CONTAINER_PORT) : 3000;
   app.listen(port, () => {
     Actor.setStatusMessage(`MCP server ready — listening on port ${port}`);
-    console.error(`Business X MCP server listening on port ${port}`);
+    console.error(`UK Company Intelligence MCP server listening on port ${port}`);
   });
 
   process.on('SIGINT', () => { console.error('Shutting down.'); process.exit(0); });
@@ -131,7 +131,7 @@ async function runStdioServer() {
   const server = buildMcpServer();
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('Business X MCP server running on stdio');
+  console.error('UK Company Intelligence MCP server running on stdio');
 }
 
 // ─── Mode: single Actor run (--once flag or no standby mode) ─────────────────

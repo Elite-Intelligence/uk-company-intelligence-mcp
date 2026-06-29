@@ -1,5 +1,5 @@
 {
-  "name": "business-x-mcp",
+  "name": "uk-company-intelligence-mcp",
   "version": "1.0.0",
   "description": "UK Business Intelligence MCP server — Companies House enrichment via Apify Actor",
   "type": "module",

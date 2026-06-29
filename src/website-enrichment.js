@@ -22,7 +22,7 @@ async function fetchPage(url, fetchFn) {
     method: 'GET',
     redirect: 'follow',
     headers: {
-      'User-Agent': `${OUR_USER_AGENT}/1.0 (+https://apify.com/actors/business-x-mcp)`,
+      'User-Agent': `${OUR_USER_AGENT}/1.0 (+https://apify.com/actors/uk-company-intelligence-mcp)`,
       Accept: 'text/html,application/xhtml+xml',
       'Accept-Language': 'en-GB,en;q=0.9',
     },

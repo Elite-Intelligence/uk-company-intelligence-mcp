@@ -1,6 +1,6 @@
 {
     "$schema": "https://apify.com/schemas/v1/input.ide.json",
-    "title": "Business X Input",
+    "title": "UK Company Intelligence MCP Input",
     "description": "Input for a single company lookup. Provide either a company name or a Companies House registration number.",
     "type": "object",
     "schemaVersion": 1,
