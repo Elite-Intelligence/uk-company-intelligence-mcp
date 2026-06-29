@@ -169,7 +169,7 @@ The key is never hardcoded or logged. It is read exclusively from the environmen
 
 ## Privacy notice
 
-**Data controller:** Elite Intelligence (sole trader, United Kingdom). Contact: camerocal@esms.org.uk
+**Data controller:** Elite Intelligence (sole trader, United Kingdom). Contact: callumcameron8@outlook.com
 
 **ICO registration:** Registered with the UK Information Commissioner's Office under the Data Protection Act 2018.
 
@@ -203,7 +203,7 @@ UK Company Intelligence MCP checks and honours each website's `robots.txt` file 
 
 ### Your rights
 
-If you believe this Actor has processed personal data about you unlawfully, contact camerocal@esms.org.uk. You may also lodge a complaint with the [ICO](https://ico.org.uk/make-a-complaint/).
+If you believe this Actor has processed personal data about you unlawfully, contact callumcameron8@outlook.com. You may also lodge a complaint with the [ICO](https://ico.org.uk/make-a-complaint/).
 
 ---
 
@@ -223,7 +223,7 @@ By using UK Company Intelligence MCP you agree to the following terms.
 
 **6. Changes.** These terms may be updated at any time. Continued use of the service constitutes acceptance of the current terms.
 
-**Contact:** camerocal@esms.org.uk
+**Contact:** callumcameron8@outlook.com
 
 ---
 
