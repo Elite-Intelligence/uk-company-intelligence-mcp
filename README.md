@@ -1,8 +1,8 @@
-# Business X — UK Company Intelligence MCP
+# UK Company Intelligence MCP
 
 One tool call. Every important fact about any UK-registered company.
 
-**Business X** is an MCP server that gives AI agents instant access to verified, enriched business intelligence for any UK company — sourced from the official Companies House register and public job boards. Pass a company name or registration number; receive a single clean JSON response covering legal identity, people, financial health signals, web presence, and hiring activity.
+**UK Company Intelligence MCP** is an MCP server that gives AI agents instant access to verified, enriched business intelligence for any UK company — sourced from the official Companies House register and public job boards. Pass a company name or registration number; receive a single clean JSON response covering legal identity, people, financial health signals, web presence, and hiring activity.
 
 ---
 
@@ -155,7 +155,7 @@ The key is never hardcoded or logged. It is read exclusively from the environmen
 
 ## Rate limits
 
-- **Companies House API:** 600 requests per 5-minute window per API key. Business X caches results for 5 minutes to stay well within this limit under normal usage.
+- **Companies House API:** 600 requests per 5-minute window per API key. UK Company Intelligence MCP caches results for 5 minutes to stay well within this limit under normal usage.
 - **Apify:** Standard platform rate limits apply.
 
 ---
@@ -170,7 +170,7 @@ The key is never hardcoded or logged. It is read exclusively from the environmen
 
 **Attribution:** Contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
-**robots.txt compliance:** Business X checks and honours each website's `robots.txt` file before any scraping. Pages that disallow crawlers are skipped.
+**robots.txt compliance:** UK Company Intelligence MCP checks and honours each website's `robots.txt` file before any scraping. Pages that disallow crawlers are skipped.
 
 ---
 
