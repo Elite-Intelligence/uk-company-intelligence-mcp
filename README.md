@@ -35,7 +35,7 @@ One tool call. Every important fact about any UK-registered company.
 Connect your MCP client to:
 
 ```
-https://mcp.apify.com/actor/Elite_Intelligence~uk-company-intelligence-mcp/mcp
+https://mcp.apify.com/actor/QuantaMind~uk-company-intelligence-mcp/mcp
 ```
 
 With your [Apify API token](https://console.apify.com/account/integrations) as a bearer token.
@@ -47,7 +47,7 @@ With your [Apify API token](https://console.apify.com/account/integrations) as a
   "mcpServers": {
     "uk-company-intelligence-mcp": {
       "command": "npx",
-      "args": ["-y", "@apify/actor-mcp-runner", "Elite_Intelligence~uk-company-intelligence-mcp"],
+      "args": ["-y", "@apify/actor-mcp-runner", "QuantaMind~uk-company-intelligence-mcp"],
       "env": { "APIFY_TOKEN": "your_apify_token_here" }
     }
   }
