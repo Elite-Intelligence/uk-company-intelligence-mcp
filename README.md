@@ -2,7 +2,7 @@
 
 One tool call. Every important fact about any UK-registered company.
 
-**UK Company Intelligence MCP** is an MCP server that gives AI agents instant access to verified, enriched business intelligence for any UK company — sourced from the official Companies House register and public job boards. Pass a company name or registration number; receive a single clean JSON response covering legal identity, people, financial health signals, web presence, and hiring activity.
+**QuantaMind's UK Company Intelligence MCP** is an MCP server that gives AI agents instant access to verified, enriched business intelligence for any UK company — sourced from the official Companies House register and public job boards. Pass a company name or registration number; receive a single clean JSON response covering legal identity, people, financial health signals, web presence, and hiring activity.
 
 ---
 
