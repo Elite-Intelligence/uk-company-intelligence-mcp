@@ -1,0 +1,54 @@
+<svg width="680" height="680" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>QuantaMind logo</title>
+<desc>Circular logo with near-black background, teal neural network icon and QuantaMind text</desc>
+
+<defs>
+<clipPath id="circ">
+<circle cx="340" cy="340" r="320"/>
+</clipPath>
+</defs>
+
+<circle cx="340" cy="340" r="320" fill="#080e1a"/>
+<circle cx="340" cy="340" r="318" fill="none" stroke="#0df2c4" stroke-width="1.5" opacity="0.2"/>
+
+<line x1="340" y1="155" x2="490" y2="240" stroke="#0df2c4" stroke-width="1.2" opacity="0.35"/>
+<line x1="340" y1="155" x2="190" y2="240" stroke="#0df2c4" stroke-width="1.2" opacity="0.35"/>
+<line x1="490" y1="240" x2="490" y2="365" stroke="#0df2c4" stroke-width="1.2" opacity="0.35"/>
+<line x1="190" y1="240" x2="190" y2="365" stroke="#0df2c4" stroke-width="1.2" opacity="0.35"/>
+<line x1="490" y1="365" x2="340" y2="450" stroke="#0df2c4" stroke-width="1.2" opacity="0.35"/>
+<line x1="190" y1="365" x2="340" y2="450" stroke="#0df2c4" stroke-width="1.2" opacity="0.35"/>
+<line x1="340" y1="155" x2="490" y2="365" stroke="#0df2c4" stroke-width="0.8" opacity="0.15"/>
+<line x1="340" y1="155" x2="190" y2="365" stroke="#0df2c4" stroke-width="0.8" opacity="0.15"/>
+<line x1="190" y1="240" x2="490" y2="240" stroke="#0df2c4" stroke-width="0.8" opacity="0.15"/>
+<line x1="190" y1="365" x2="490" y2="365" stroke="#0df2c4" stroke-width="0.8" opacity="0.15"/>
+
+<circle cx="340" cy="155" r="18" fill="#0a1628" stroke="#0df2c4" stroke-width="2.5"/>
+<circle cx="490" cy="240" r="18" fill="#0a1628" stroke="#0df2c4" stroke-width="2.5"/>
+<circle cx="490" cy="365" r="18" fill="#0a1628" stroke="#0df2c4" stroke-width="2.5"/>
+<circle cx="340" cy="450" r="18" fill="#0a1628" stroke="#0df2c4" stroke-width="2.5"/>
+<circle cx="190" cy="365" r="18" fill="#0a1628" stroke="#0df2c4" stroke-width="2.5"/>
+<circle cx="190" cy="240" r="18" fill="#0a1628" stroke="#0df2c4" stroke-width="2.5"/>
+
+<circle cx="340" cy="155" r="7" fill="#0df2c4"/>
+<circle cx="490" cy="240" r="7" fill="#0df2c4"/>
+<circle cx="490" cy="365" r="7" fill="#0df2c4"/>
+<circle cx="340" cy="450" r="7" fill="#0df2c4"/>
+<circle cx="190" cy="365" r="7" fill="#0df2c4"/>
+<circle cx="190" cy="240" r="7" fill="#0df2c4"/>
+
+<circle cx="340" cy="303" r="44" fill="#0a1628" stroke="#0df2c4" stroke-width="2.5"/>
+<circle cx="340" cy="303" r="30" fill="#0df2c4" opacity="0.15"/>
+<circle cx="340" cy="303" r="16" fill="#0df2c4"/>
+
+<line x1="340" y1="259" x2="340" y2="155" stroke="#0df2c4" stroke-width="1.2" opacity="0.5"/>
+<line x1="381" y1="283" x2="490" y2="240" stroke="#0df2c4" stroke-width="1.2" opacity="0.5"/>
+<line x1="381" y1="323" x2="490" y2="365" stroke="#0df2c4" stroke-width="1.2" opacity="0.5"/>
+<line x1="340" y1="347" x2="340" y2="450" stroke="#0df2c4" stroke-width="1.2" opacity="0.5"/>
+<line x1="299" y1="323" x2="190" y2="365" stroke="#0df2c4" stroke-width="1.2" opacity="0.5"/>
+<line x1="299" y1="283" x2="190" y2="240" stroke="#0df2c4" stroke-width="1.2" opacity="0.5"/>
+
+<text x="340" y="546" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="700" fill="#ffffff" letter-spacing="5">QUANTA</text>
+<line x1="155" y1="566" x2="525" y2="566" stroke="#0df2c4" stroke-width="1.5" opacity="0.6"/>
+<text x="340" y="622" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="300" fill="#0df2c4" letter-spacing="14">MIND</text>
+
+</svg>
