@@ -3,14 +3,12 @@
     "actorSpecification": 1,
     "name": "uk-company-intelligence-mcp",
     "title": "UK Company Intelligence MCP",
-    "description": "MCP server that returns enriched business intelligence for any UK-registered company. One call returns: legal identity, directors, incorporation date, SIC codes, registered address, accounts status, registered charges, website description, contact details, and hiring signals. Data sourced from the official Companies House API. Contains public sector information licensed under the Open Government Licence v3.0.",
+    "description": "MCP server for UK company intelligence. One call returns legal identity, directors, SIC codes, accounts status, charges, website description, and hiring signals. Sourced from the official Companies House API.",
     "version": "1.0",
     "buildTag": "latest",
     "usesStandbyMode": true,
     "input": "./input_schema.json",
-    "storages": {
-        "dataset": "./dataset_schema.json"
-    },
     "dockerfile": "../Dockerfile",
-    "webServerMcpPath": "/mcp"
+    "webServerMcpPath": "/mcp",
+    "readme": "../README.md"
 }
