@@ -35,7 +35,7 @@ One tool call. Every important fact about any UK-registered company.
 Connect your MCP client to:
 
 ```
-https://mcp.apify.com/actor/YOUR_USERNAME~uk-company-intelligence-mcp/mcp
+https://mcp.apify.com/actor/Elite_Intelligence~uk-company-intelligence-mcp/mcp
 ```
 
 With your [Apify API token](https://console.apify.com/account/integrations) as a bearer token.
@@ -47,7 +47,7 @@ With your [Apify API token](https://console.apify.com/account/integrations) as a
   "mcpServers": {
     "uk-company-intelligence-mcp": {
       "command": "npx",
-      "args": ["-y", "@apify/actor-mcp-runner", "YOUR_USERNAME~uk-company-intelligence-mcp"],
+      "args": ["-y", "@apify/actor-mcp-runner", "Elite_Intelligence~uk-company-intelligence-mcp"],
       "env": { "APIFY_TOKEN": "your_apify_token_here" }
     }
   }
@@ -123,7 +123,14 @@ Results are pushed to the Actor's default dataset.
 
 ## Pricing
 
-Pay per lookup via Apify's pay-per-event model. You are only charged when a result is successfully returned.
+Pay per lookup via Apify's pay-per-event model.
+
+| Event | Price |
+|---|---|
+| Company lookup | **$0.015** per successful result |
+| Actor start | $0.00005 (negligible startup cost) |
+
+You are only charged when a result is successfully returned. Failed lookups (company not found, API error) are not charged. There are no subscription fees or minimum spend.
 
 ---
 
@@ -160,17 +167,63 @@ The key is never hardcoded or logged. It is read exclusively from the environmen
 
 ---
 
-## Privacy & legal
+## Privacy notice
 
-**Data source:** UK company and director data is sourced from the Companies House public register.
+**Data controller:** Elite Intelligence (sole trader, United Kingdom). Contact: camerocal@esms.org.uk
 
-**Lawful basis:** Legitimate interest (UK GDPR Article 6(1)(f)) — standard basis used by all UK B2B data intelligence providers.
+**ICO registration:** Registered with the UK Information Commissioner's Office under the Data Protection Act 2018.
 
-**What is included:** Registered company information and director names/roles as held on the public Companies House register. No personal residential addresses, personal email addresses, or personal phone numbers of individuals are returned.
+### What personal data is processed
 
-**Attribution:** Contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+When you call `lookup_uk_company`, the Actor retrieves director names and appointment details from the Companies House public register. This constitutes personal data under UK GDPR.
 
-**robots.txt compliance:** UK Company Intelligence MCP checks and honours each website's `robots.txt` file before any scraping. Pages that disallow crawlers are skipped.
+The Actor does **not** collect, store, or process any personal data about users of this service. No query terms, API tokens, IP addresses, or usage data are retained by this Actor beyond the duration of the individual request.
+
+### Lawful basis
+
+Processing of director data is carried out under **legitimate interest** (UK GDPR Article 6(1)(f)). The legitimate interest pursued is the provision of B2B company intelligence to users conducting due diligence, credit assessment, supplier verification, and similar commercial research — activities that are standard in the B2B data industry and consistent with reasonable expectations of individuals who hold director roles at registered companies.
+
+A Legitimate Interest Assessment (LIA) has been completed and is held on file.
+
+### What is included — and what is not
+
+Returned data is limited to information held on the public Companies House register: company name, number, status, type, registered address, SIC codes, officer names and roles, and filing/charge information. Director residential addresses are **not** returned even where present in the register. No personal email addresses or personal phone numbers of individuals are returned.
+
+### Data retention
+
+This Actor does not persist any data. Each lookup is a real-time pass-through to the Companies House API and public websites. No results are stored beyond the Apify dataset entry created by a single Actor run, which is subject to Apify's standard data retention policy.
+
+### Attribution
+
+Contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+
+### robots.txt compliance
+
+UK Company Intelligence MCP checks and honours each website's `robots.txt` file before scraping. Pages that disallow crawlers are skipped.
+
+### Your rights
+
+If you believe this Actor has processed personal data about you unlawfully, contact camerocal@esms.org.uk. You may also lodge a complaint with the [ICO](https://ico.org.uk/make-a-complaint/).
+
+---
+
+## Terms of service
+
+By using UK Company Intelligence MCP you agree to the following terms.
+
+**1. Permitted use.** This service may be used for lawful commercial and research purposes including due diligence, supplier verification, credit assessment, and sales intelligence. It may not be used to facilitate harassment, stalking, discrimination, or any activity unlawful under UK law.
+
+**2. Data accuracy.** Data is sourced from the Companies House public register and company websites. While every effort is made to return accurate information, no warranty is given as to the completeness, accuracy, or fitness for purpose of results. You are responsible for verifying information before acting on it.
+
+**3. No liability.** To the maximum extent permitted by law, Elite Intelligence shall not be liable for any loss or damage arising from use of this service or reliance on data returned by it.
+
+**4. Compliance.** You are responsible for ensuring your use of this service complies with applicable laws, including UK GDPR, and with the terms of any downstream platforms or systems you integrate with.
+
+**5. Fair use.** Automated bulk lookups designed to scrape the entire Companies House register are not permitted. This service is intended for targeted lookups in the course of normal business workflows.
+
+**6. Changes.** These terms may be updated at any time. Continued use of the service constitutes acceptance of the current terms.
+
+**Contact:** camerocal@esms.org.uk
 
 ---
 
