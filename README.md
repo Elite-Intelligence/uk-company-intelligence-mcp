@@ -169,7 +169,7 @@ The key is never hardcoded or logged. It is read exclusively from the environmen
 
 ## Privacy notice
 
-**Data controller:** Elite Intelligence (sole trader, United Kingdom). Contact: callumcameron8@outlook.com
+**Data controller:** QuantaMind (sole trader, United Kingdom). Contact: callumcameron8@outlook.com
 
 **ICO registration:** Registered with the UK Information Commissioner's Office under the Data Protection Act 2018.
 
@@ -215,7 +215,7 @@ By using UK Company Intelligence MCP you agree to the following terms.
 
 **2. Data accuracy.** Data is sourced from the Companies House public register and company websites. While every effort is made to return accurate information, no warranty is given as to the completeness, accuracy, or fitness for purpose of results. You are responsible for verifying information before acting on it.
 
-**3. No liability.** To the maximum extent permitted by law, Elite Intelligence shall not be liable for any loss or damage arising from use of this service or reliance on data returned by it.
+**3. No liability.** To the maximum extent permitted by law, QuantaMind shall not be liable for any loss or damage arising from use of this service or reliance on data returned by it.
 
 **4. Compliance.** You are responsible for ensuring your use of this service complies with applicable laws, including UK GDPR, and with the terms of any downstream platforms or systems you integrate with.
 
