@@ -1,0 +1,28 @@
+{
+  "name": "business-x-mcp",
+  "version": "1.0.0",
+  "description": "UK Business Intelligence MCP server — Companies House enrichment via Apify Actor",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "start:stdio": "node src/main.js --stdio",
+    "start:once": "node src/main.js --once",
+    "test": "node src/test.js",
+    "test:website": "node src/test-website.js",
+    "test:hiring": "node src/test-hiring.js",
+    "test:all": "node src/test.js && node src/test-website.js && node src/test-hiring.js"
+  },
+  "dependencies": {
+    "apify": "^3.2.2",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "node-fetch": "^3.3.2",
+    "cheerio": "^1.0.0",
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "zod": "^3.23.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "Business X Input",
+    "description": "Input for a single company lookup. Provide either a company name or a Companies House registration number.",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "query": {
+            "title": "Company name or registration number",
+            "type": "string",
+            "description": "UK company name (e.g. 'Tesco PLC') or Companies House registration number (e.g. '00445790' or 'SC123456'). Names are searched; numbers are looked up directly.",
+            "editor": "textfield",
+            "prefill": "Monzo Bank Limited"
+        },
+        "websiteUrl": {
+            "title": "Website URL (optional)",
+            "type": "string",
+            "description": "Known website URL for the company (e.g. 'https://monzo.com'). If provided, skips domain inference. robots.txt is always checked before any scraping.",
+            "editor": "textfield"
+        }
+    },
+    "required": ["query"]
+}
