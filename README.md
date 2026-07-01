@@ -171,7 +171,7 @@ The key is never hardcoded or logged. It is read exclusively from the environmen
 
 **Data controller:** QuantaMind (sole trader, United Kingdom). Contact: callumcameron8@outlook.com
 
-**ICO registration:** Registered with the UK Information Commissioner's Office under the Data Protection Act 2018.
+**ICO registration:** Registered with the UK Information Commissioner's Office under the Data Protection Act 2018. Registration number: ZC185248.
 
 ### What personal data is processed
 
