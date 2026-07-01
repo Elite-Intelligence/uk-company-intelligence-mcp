@@ -13,6 +13,13 @@ const EMAIL_BLOCKLIST = [
   'openid.net', 'cloudflare.com', 'amazonaws.com',
 ];
 
+// These local parts are placeholder/dummy emails (e.g. example@server.co.uk)
+const EMAIL_LOCAL_BLOCKLIST = [
+  'example', 'test', 'user', 'name', 'email', 'youremail', 'yourname',
+  'placeholder', 'noreply', 'no-reply', 'donotreply', 'do-not-reply',
+  'username', 'emailaddress', 'youraddress',
+];
+
 function decodeHtmlEntities(str) {
   return str
     .replace(/&amp;/g, '&')
@@ -99,7 +106,9 @@ function extractEmails(html) {
   let m;
   while ((m = mailtoRe.exec(html)) !== null) {
     const addr = cleanEmail(m[1].toLowerCase());
-    if (addr.includes('@')) emails.add(addr);
+    if (!addr.includes('@')) continue;
+    const local = addr.split('@')[0];
+    if (!EMAIL_LOCAL_BLOCKLIST.includes(local)) emails.add(addr);
   }
 
   // Fall back to plain text email pattern, filtered more aggressively
@@ -108,7 +117,8 @@ function extractEmails(html) {
     while ((m = plainRe.exec(html)) !== null) {
       const addr = cleanEmail(m[1].toLowerCase());
       if (!addr.includes('@')) continue;
-      const domain = addr.split('@')[1];
+      const [local, domain] = addr.split('@');
+      if (EMAIL_LOCAL_BLOCKLIST.includes(local)) continue;
       if (!EMAIL_BLOCKLIST.some(b => domain === b || domain.endsWith('.' + b))) {
         emails.add(addr);
       }
@@ -123,11 +133,26 @@ function normalizePhone(raw) {
   const digits = raw.replace(/[^\d+]/g, '');
   // UK numbers: 10-11 digits (or 12-13 with +44/0044 prefix)
   if (digits.length < 10 || digits.length > 13) return null;
-  // Reformat cleanly with spaces
-  if (digits.startsWith('+44')) return '+44 ' + digits.slice(3).replace(/(\d{4})(\d{3})(\d{3,4})/, '$1 $2 $3');
-  if (digits.startsWith('0044')) return '+44 ' + digits.slice(4);
-  // Domestic format: 07xxx xxxxxx or 01xxx xxxxxx etc.
-  return digits.replace(/^(0\d{4})(\d{3})(\d{3,4})$/, '$1 $2 $3') || digits;
+
+  // Normalise to domestic digits (no country code)
+  let domestic;
+  if (digits.startsWith('+44')) domestic = '0' + digits.slice(3);
+  else if (digits.startsWith('0044')) domestic = '0' + digits.slice(4);
+  else domestic = digits;
+
+  if (!domestic.startsWith('0')) return null;
+
+  // London 020 numbers: 020 XXXX XXXX
+  if (domestic.startsWith('020') && domestic.length === 11)
+    return '+44 20 ' + domestic.slice(3, 7) + ' ' + domestic.slice(7);
+  // 03/07/08 and other 5-digit area codes: 0XXXX XXXXXX
+  if (domestic.length === 11)
+    return '+44 ' + domestic.slice(1, 5) + ' ' + domestic.slice(5, 8) + ' ' + domestic.slice(8);
+  // 10-digit: 01/02 area codes with 4-digit prefix
+  if (domestic.length === 10)
+    return '+44 ' + domestic.slice(1, 4) + ' ' + domestic.slice(4, 7) + ' ' + domestic.slice(7);
+
+  return domestic;
 }
 
 function extractPhones(html) {
